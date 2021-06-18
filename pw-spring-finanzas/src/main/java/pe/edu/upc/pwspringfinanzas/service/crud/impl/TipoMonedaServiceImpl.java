@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import pe.edu.upc.pwspringfinanzas.model.repository.TipoMonedaRepository;
 import pe.edu.upc.pwspringfinanzas.service.crud.TipoMonedaService;
 
-public class TipoMoneda implements TipoMonedaService{
+public class TipoMonedaServiceImpl implements TipoMonedaService{
 
 	@Autowired
 	private TipoMonedaRepository tipoMonedaRepository;
