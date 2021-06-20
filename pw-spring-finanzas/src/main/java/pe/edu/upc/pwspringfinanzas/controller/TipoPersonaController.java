@@ -12,76 +12,76 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import pe.edu.upc.pwspringfinanzas.model.entity.TipoMoneda;
-import pe.edu.upc.pwspringfinanzas.service.crud.TipoMonedaService;
+import pe.edu.upc.pwspringfinanzas.model.entity.TipoPersona;
+import pe.edu.upc.pwspringfinanzas.service.crud.TipoPersonaService;
 
 @Controller
-@RequestMapping("/tipomonedas")
-@SessionAttributes("tipomonedaEdit")
-public class TipoMonedaController {
+@RequestMapping("/tipopersonas")
+@SessionAttributes("tipopersonaEdit")
+public class TipoPersonaController {
 	@Autowired
-	private TipoMonedaService tipoMonedaService;
+	private TipoPersonaService tipoPersonaService;
 	
 	@GetMapping
 	public String list(Model model) {
 		try {
-			List<TipoMoneda> tipomonedas = tipoMonedaService.getAll();
-			model.addAttribute("tipomonedas", tipomonedas);
+			List<TipoPersona> tipopersonas = tipoPersonaService.getAll();
+			model.addAttribute("tipopersonas", tipopersonas);
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
 		}
-		return "tipomonedas/listTipoMoneda";
+		return "tipopersonas/listTipoPersona";
 	}
 	@PostMapping("save")
-	public String saveEdit(Model model, @ModelAttribute("tipomonedaEdit") TipoMoneda tipomoneda) {
+	public String saveEdit(Model model, @ModelAttribute("tipopersonaEdit") TipoPersona tipopersona) {
 		try {
-			TipoMoneda tipomonedaReturn = tipoMonedaService.update(tipomoneda);
-			model.addAttribute("tipomoneda", tipomonedaReturn);
+			TipoPersona tipopersonaReturn = tipoPersonaService.update(tipopersona);
+			model.addAttribute("tipopersona", tipopersonaReturn);
 			// return "studios/viewStudio";
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
 		}
-		return "redirect:/tipomonedas";
+		return "redirect:/tipopersonas";
 	}
 	@GetMapping("new")
 	public String newItem(Model model) {
 		try {
-			TipoMoneda tipomoneda= new TipoMoneda();
-			model.addAttribute("tipomonedaNew",tipomoneda);
-			return "tipomonedas/newTipoMoneda";
+			TipoPersona tipopersona= new TipoPersona();
+			model.addAttribute("tipopersonaNew",tipopersona);
+			return "tipopersonas/newTipoPersona";
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
 		}
 
-		return "redirect:/tipomonedas";
+		return "redirect:/tipopersonas";
 	}
 	@PostMapping("savenew")
-	public String saveNew(Model model, @ModelAttribute("tipomonedaNew") TipoMoneda tipomoneda) {
+	public String saveNew(Model model, @ModelAttribute("tipopersonaNew") TipoPersona tipopersona) {
 		try {
-			TipoMoneda tipomonedaReturn = tipoMonedaService.create(tipomoneda);
-			model.addAttribute("tipomoneda", tipomonedaReturn);
+			TipoPersona tipopersonaReturn = tipoPersonaService.create(tipopersona);
+			model.addAttribute("tipopersona", tipopersonaReturn);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
 		}
 
-		return "redirect:/tipomonedas";
+		return "redirect:/tipopersonas";
 	}
-	@GetMapping("{id}/deleteTipoMoneda")
+	@GetMapping("{id}/deleteTipoPersona")
 	public String deleteCartera(@PathVariable("id") Integer id) {
 		try {
-			Optional<TipoMoneda> optional = tipoMonedaService.findById(id);
+			Optional<TipoPersona> optional = tipoPersonaService.findById(id);
 			if (optional.isPresent()) {
-				tipoMonedaService.deteleById(id);
+				tipoPersonaService.deteleById(id);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
 		}
-		return "redirect:/tipomonedas";
+		return "redirect:/tipopersonas";
 	}
 }
