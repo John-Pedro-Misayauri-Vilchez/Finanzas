@@ -8,11 +8,11 @@ spring:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/finanzas
     username: postgres
-    password: "admin"
+    password: 12345
   jpa:
     database: postgresql
     hibernate:
-      ddl-auto: update
+      ddl-auto: drop-and-create
     show-sql: true
     properties:
       hibernate:

@@ -60,7 +60,7 @@ public class CarteraController {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
 		}
-		return "carteras/listCartera";
+		return "letra/nuevaletra";
 	}
 
 	// Id's

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+<meta charset="utf-8">
+<link th:href="@{css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{css/fontawesome.min.css}" rel="stylesheet">
+<link th:href="@{css/solid.min.css}" rel="stylesheet">
+</head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+	<main>
+		<div class="card text-center">
+			<div class="card-header">Featured</div>
+			<div class="card-body">
+				<div class="container py-3 row">
+					<br>
+					<form class="row g-3">
+						<div class="mb-3 row">
+							<label for="inputPassword" class="col-sm-2 col-form-label">Email</label>
+							<div class="col-sm-4">
+								<input type="password" class="form-control" id="inputPassword">
+							</div>
+						</div>
+						<div class="mb-3 row">
+							<label for="inputPassword" class="col-sm-2 col-form-label">Email</label>
+							<div class="col-sm-4">
+								<input type="password" class="form-control" id="inputPassword">
+							</div>
+						</div>
+						<div class="mb-3 row">
+							<label for="inputPassword" class="col-sm-2 col-form-label">Email</label>
+							<div class="col-sm-4">
+								<input type="password" class="form-control" id="inputPassword">
+							</div>
+						</div>
+						<div class="mb-3 row">
+							<label for="inputPassword" class="col-sm-2 col-form-label">State</label>
+							<div class="col-sm-4">
+								<select id="inputState" class="form-select">
+									<option th:each="producto : ${compras}"
+										th:text="${producto.nombreProducto}"
+										th:value="${producto.idProducto}"></option>
+								</select>
+							</div>
+						</div>
+						<div class="mb-3 row">
+							<label for="inputPassword" class="col-sm-2 col-form-label">State</label>
+							<div class="col-sm-4">
+								<select id="inputState" class="form-select">
+									<option th:each="producto : ${compras}"
+										th:text="${producto.nombreProducto}"
+										th:value="${producto.idProducto}"></option>
+								</select>
+							</div>
+						</div>
+						<div class="mb-3 row">
+							<div class="col-sm-4">
+								<a style="margin-right: 50px" class="btn btn-info" href="/"
+									type="submit"> <i class="fas fa-undo-alt"> Return</i>
+								</a>
+							</div>
+							<div class="col-sm-4">
+								<a style="margin-right: 50px" class="btn btn-info" href="/"
+									type="submit"> <i class="fas fa-undo-alt"> Return</i>
+								</a>
+							</div>
+						</div>
+						<div class="col-sm-7">
+							<table class="table table-info table-striped table-hover">
+								<thead>
+									<tr>
+										<th>Tipo de Gasto</th>
+										<th>Forma</th>
+										<th>Cantidad Intermedia</th>
+										<th>Cantidad Real</th>
+										<th>Delete</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="producto : ${productos}">
+										<th th:text="${producto.idProducto}">.</th>
+										<th th:text="${producto.nombreProducto}">.</th>
+										<th th:text="${producto.precioProducto}">.</th>
+										<th th:text="${compra.cantidad}">.</th>
+										<td>
+											<button style="margin-left: 25px" class="btn btn-warning"
+												type="submit">
+												<i class="far fa-trash-alt"> Eliminar</i>
+											</button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</form>
+					<form class="mb-3">
+						<div class="mb-3 row">
+							<label for="inputPassword" class="col-sm-2 col-form-label">Email</label>
+							<div class="col-sm-4">
+								<input type="password" class="form-control" id="inputPassword">
+							</div>
+						</div>
+						<div class="mb-3 row">
+							<label for="inputPassword" class="col-sm-2 col-form-label">Email</label>
+							<div class="col-sm-4">
+								<input type="password" class="form-control" id="inputPassword">
+							</div>
+						</div>
+						<div class="mb-3 row">
+							<label for="inputPassword" class="col-sm-2 col-form-label">Email</label>
+							<div class="col-sm-4">
+								<input type="password" class="form-control" id="inputPassword">
+							</div>
+						</div>
+						<div class="mb-3 row">
+							<label for="inputPassword" class="col-sm-2 col-form-label">State</label>
+							<div class="col-sm-4">
+								<select id="inputState" class="form-select">
+									<option th:each="producto : ${compras}"
+										th:text="${producto.nombreProducto}"
+										th:value="${producto.idProducto}"></option>
+								</select>
+							</div>
+						</div>
+						<div class="mb-3 row">
+							<label for="inputPassword" class="col-sm-2 col-form-label">State</label>
+							<div class="col-sm-4">
+								<select id="inputState" class="form-select">
+									<option th:each="producto : ${compras}"
+										th:text="${producto.nombreProducto}"
+										th:value="${producto.idProducto}"></option>
+								</select>
+							</div>
+						</div>
+						<div class="mb-3 row">
+							<div class="col-sm-4">
+								<a style="margin-right: 50px" class="btn btn-info" href="/"
+									type="submit"> <i class="fas fa-undo-alt"> Return</i>
+								</a>
+							</div>
+							<div class="col-sm-4">
+								<a style="margin-right: 50px" class="btn btn-info" href="/"
+									type="submit"> <i class="fas fa-undo-alt"> Return</i>
+								</a>
+							</div>
+						</div>
+						<div class="col-sm-7">
+							<table class="table table-info table-striped table-hover">
+								<thead>
+									<tr>
+										<th>Tipo de Gasto</th>
+										<th>Forma</th>
+										<th>Cantidad Intermedia</th>
+										<th>Cantidad Real</th>
+										<th>Delete</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="producto : ${productos}">
+										<th th:text="${producto.idProducto}">.</th>
+										<th th:text="${producto.nombreProducto}">.</th>
+										<th th:text="${producto.precioProducto}">.</th>
+										<th th:text="${compra.cantidad}">.</th>
+										<td>
+											<button style="margin-left: 25px" class="btn btn-warning"
+												type="submit">
+												<i class="far fa-trash-alt"> Eliminar</i>
+											</button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</form>
+					<div class="mb-3 row">
+						<div class="col-sm-4">
+							<a style="margin-right: 50px" class="btn btn-info" href="/"
+								type="submit"> <i class="fas fa-undo-alt"> Return</i>
+							</a>
+						</div>
+						<div class="col-sm-4">
+							<a style="margin-right: 50px" class="btn btn-info" href="/"
+								type="submit"> <i class="fas fa-undo-alt"> Return</i>
+							</a>
+						</div>
+						<div class="col-sm-4">
+							<a style="margin-right: 50px" class="btn btn-info" href="/"
+								type="submit"> <i class="fas fa-undo-alt"> Return</i>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="card-footer text-muted">2 days ago</div>
+			</div>
+	</main>
+	<footer th:replace="layout/layout :: footer"></footer>
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
